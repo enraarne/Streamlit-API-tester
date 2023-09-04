@@ -89,7 +89,7 @@ st.markdown("***")
 
 
 #### Funksjonstester ####
-st.markdown("""<h2 style="background-color: RGB(170 187 204); padding: 10px;">1. Funksjonstest av utvikler- og data-APIer</h2>"""\
+st.markdown("""<h2 style="background-color: RGB(170 187 204); padding: 10px;">1. Funksjonstester av utvikler- og data-APIer</h2>"""\
     , unsafe_allow_html=True)
 #st.header("1. Funksjonstest av utvikler- og data-APIer")
 st.write(f"""Funksjonstestene tester om API-ene er operative. De tester alle seks utvikler-API-ene og data-API-et. \
