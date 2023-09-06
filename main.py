@@ -81,7 +81,7 @@ if st.sidebar.button("Tøm bufferen", type="primary"):
 
 #### Header and Introduction ####
 st.title("Testredskaper for Statistikksystemets åpne API (v1.0)")
-st.write("Denne web appen tilbyr fire forskjellige typer tester: funksjonstester, hastighetstester, pagineringstester og innholdstester. \
+st.write("Denne web-appen tilbyr fire forskjellige typer tester: funksjonstester, hastighetstester, pagineringstester og innholdstester. \
     I de fleste tilfeller kan du selv stille inn hvor omfattende du ønsker at testene skal være, f.eks. ved å sette opp antall kall mot API-et. \
         Desto flere kall mot API-et, desto bedre datagrunnlag for å vurdere ytelsen. Men desto flere kall mot API-et, desto lengre tid \
             tar det å gjennomføre testene.")
