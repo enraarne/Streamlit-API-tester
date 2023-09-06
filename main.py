@@ -56,7 +56,7 @@ else:
 
 #### Add sidebar ####
 st.sidebar.markdown("# Testtjeneste for Åpent API")
-st.sidebar.markdown("Denne web-appen tilbyr en rekke tester som tester ut forskjellige sider av det åpne API-et")
+st.sidebar.markdown("Denne web-appen tilbyr en rekke tester som tester ut forskjellige sider av det åpne APIet")
 st.sidebar.markdown("**Innholdsfortegnelse:**")
 st.sidebar.markdown("[1. Funksjonstest av utvikler- og data-APIer](#1-funksjonstest-av-utvikler-og-data-apier)")
 st.sidebar.markdown("[2. Hastighetstester av APIet](#2-hastighetstester-av-apiet)")
