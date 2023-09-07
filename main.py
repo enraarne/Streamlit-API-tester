@@ -23,7 +23,7 @@ st.set_page_config(layout="wide", page_title='USS API-tester', page_icon = "img/
 st.set_option('deprecation.showPyplotGlobalUse', False)
 import streamlit.components.v1 as components  # Import Streamlit
 
-# Import of funktions from own modules 
+# Import of functions from own modules 
 from API_helper_functions.helper_functions import eksporttabeller, eksport_format, eksport_filtere, eksport_filterverdier, eksport_filterstatus, eksport_rader_sider, eksport_data, run_all_functions, API_funksjonstester
 from API_helper_functions.load_data import get_orgnummer, get_fylker
 from API_helper_functions.speed_tests import speed_test_1, speed_test_1_print, speed_test_2, speed_test_2_print, \
@@ -56,7 +56,7 @@ else:
 
 #### Add sidebar ####
 st.sidebar.markdown("# Testtjeneste for Åpent API")
-st.sidebar.markdown("Denne web-appen tilbyr en rekke tester som tester ut forskjellige sider av det åpne API-et")
+st.sidebar.markdown("Denne web-appen tilbyr en rekke tester som tester ut forskjellige sider av det åpne APIet")
 st.sidebar.markdown("**Innholdsfortegnelse:**")
 st.sidebar.markdown("[1. Funksjonstest av utvikler- og data-APIer](#1-funksjonstest-av-utvikler-og-data-apier)")
 st.sidebar.markdown("[2. Hastighetstester av APIet](#2-hastighetstester-av-apiet)")
@@ -64,7 +64,7 @@ st.sidebar.markdown("[3. Pagineringstester](#3-pagineringstester)")
 st.sidebar.markdown("[4. Innholdstester](#4-innholdstester)")
 st.sidebar.markdown("")
 st.sidebar.markdown("**Buffer (cache):**")
-st.sidebar.markdown("""Denne web appen benytter en server-side buffer (cache) som lagrer kall mot APIene. \
+st.sidebar.markdown("""Denne web-appen benytter en server-side buffer (cache) som lagrer kall mot APIene. \
     Bufferen lagrer i utgangspunktet kun resultater av kall innen samme økt (session). Du avslutter en økt når du laster inn websiden \
         på nytt eller legger ned fanen. Hvis du ønsker at kallene skal være lagret mellom økter og for alle brukere,  trykk på radioknappen \
             nedenfor som er markert 'Global' """)
@@ -72,7 +72,7 @@ mode = st.sidebar.radio("**Modus**", options=('Lokal', 'Global'))
 if mode == 'Global':
     uu = 'Global'
     #st.sidebar.write("DEBUG: ", uu)
-st.sidebar.markdown("""Hvis du ønsker å tømme bufferen, kan du enten trykk på knappen nedenfor eller gå inn på "hamburgermenyen" øverst \
+st.sidebar.markdown("""Hvis du ønsker å tømme bufferen, kan du enten trykke på knappen nedenfor eller gå inn på "hamburgermenyen" øverst \
     til høyre og trykke på "clear cache". Merk at du da vil tømme bufferen for alle brukere av tjenesten.""")
 if st.sidebar.button("Tøm bufferen", type="primary"):
     st.experimental_memo.clear()
@@ -81,7 +81,7 @@ if st.sidebar.button("Tøm bufferen", type="primary"):
 
 #### Header and Introduction ####
 st.title("Testredskaper for Statistikksystemets åpne API (v1.0)")
-st.write("Denne web appen tilbyr fire forskjellige typer tester: funksjonstester, hastighetstester, pagineringstester og innholdstester. \
+st.write("Denne web-appen tilbyr fire forskjellige typer tester: funksjonstester, hastighetstester, pagineringstester og innholdstester. \
     I de fleste tilfeller kan du selv stille inn hvor omfattende du ønsker at testene skal være, f.eks. ved å sette opp antall kall mot API-et. \
         Desto flere kall mot API-et, desto bedre datagrunnlag for å vurdere ytelsen. Men desto flere kall mot API-et, desto lengre tid \
             tar det å gjennomføre testene.")
@@ -204,8 +204,8 @@ st.markdown("""<h2 style="background-color: RGB(170 187 204); ;padding: 10px;">3
     , unsafe_allow_html=True)
 #st.header("3. Pagineringstester") 
 st.subheader("3.1 Test av et tilfeldig utvalg sider er identiske")
-st.write("Pagineringstesten gjør en spørring mot API-et med ett tilfeldig valgt Fylke og ett tilfeldig valgt organisasjonsnummer. \
-    Denne spørringen vi vanligvis generere en respons som tar opp rundet 300 sider. Pagineringstesten gjør to kall mot samme sidenummer \
+st.write("Pagineringstesten gjør en spørring mot API-et med ett tilfeldig valgt fylke og ett tilfeldig valgt organisasjonsnummer. \
+    Denne spørringen vil vanligvis generere en respons som tar opp rundt 300 sider. Pagineringstesten gjør to kall mot samme sidenummer \
         og sammenligner sidene og ser om de er identiske. Pagineringstesten gjentar denne prosedyren et spesifisert antall ganger. Hver \
             gang trekker testen ut et nytt sidenummer. Pagineringstesten undersøker om sidene har samme antall rader, samme innhold i radene \
                 og at radene er organisert i samme rekkefølge.")
@@ -252,7 +252,7 @@ with col2:
 
 st.subheader("4.2 Test av prikking")
 st.write("Test av prikking er ikke med i den offentlige versjonen av applikasjonen. For å benytte denne funksjonaliteten \
-         bruk den intert tilgjengelige versjonen. I denne versjonen, vil funksjonen alltid returnere 'Riktig'")
+         bruk den internt tilgjengelige versjonen. I denne versjonen, vil funksjonen alltid returnere 'Riktig'")
 
 
 sql_code = """
