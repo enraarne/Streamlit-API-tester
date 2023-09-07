@@ -121,7 +121,7 @@ st.subheader("2.1 Test av responstid med én tilfeldig generert spørring")
 st.write(f"""Denne hastighetstesten benytter seg av en spørring med et tilfeldig trukket fylke og et tilfeldig trukket \
     organisasjonsnummer. Testen måler både tiden det tar å laste ned header og tiden det tar å laste ned både header \
         og body (dvs. alle rader). Ettersom samme spørring gjentas flere ganger, vil responstiden påvirkes av caching (buffering) \
-            i API-et. Er caching satt på, vil man vente at første spørring tar betraktelig lengre tid enn senere spørringer.""")
+            i APIet. Er caching satt på, vil man vente at første spørring tar betraktelig lengre tid enn senere spørringer.""")
 
 
 slider_2_1 = st.slider("**Velg antall kall mot APIet**", min_value=10, max_value=100, value=50, key="slider_2_1")
@@ -181,9 +181,9 @@ if st.button("Kjør hastighetstest 2.3", type="primary") or 'button_2_3' in st.s
 
 #### Hastighetstest 2.4 ####
 st.subheader("2.4 Test av et tilfeldig utvalg APIer")
-st.write("Denne testen sammenligner hastigheten på de seks utvikler-API-ene og data-API-et. Hensikten med testen er å se om noen \
+st.write("Denne testen sammenligner hastigheten på de seks utvikler-APIene og data-APIet. Hensikten med testen er å se om noen \
     av API-ene skiller seg ut med hensyn til responshastighet. Man vil i utgangspunktet vente at data-API-et vil ha noe høyere \
-        responstid enn de andre API-ene. Denne hasighetstesten plukker API-er i tilfeldig rekkefølge.")
+        responstid enn de andre APIene. Denne hasighetstesten plukker APIer i tilfeldig rekkefølge.")
 
 
 slider_2_4 = st.slider("**Velg antall kall mot APIet**", min_value=20, max_value=100, value=50, key="slider_2_4")
@@ -204,7 +204,7 @@ st.markdown("""<h2 style="background-color: RGB(170 187 204); ;padding: 10px;">3
     , unsafe_allow_html=True)
 #st.header("3. Pagineringstester") 
 st.subheader("3.1 Test av et tilfeldig utvalg sider er identiske")
-st.write("Pagineringstesten gjør en spørring mot API-et med ett tilfeldig valgt fylke og ett tilfeldig valgt organisasjonsnummer. \
+st.write("Pagineringstesten gjør en spørring mot APIet med ett tilfeldig valgt fylke og ett tilfeldig valgt organisasjonsnummer. \
     Denne spørringen vil vanligvis generere en respons som tar opp rundt 300 sider. Pagineringstesten gjør to kall mot samme sidenummer \
         og sammenligner sidene og ser om de er identiske. Pagineringstesten gjentar denne prosedyren et spesifisert antall ganger. Hver \
             gang trekker testen ut et nytt sidenummer. Pagineringstesten undersøker om sidene har samme antall rader, samme innhold i radene \
