@@ -92,8 +92,8 @@ st.markdown("***")
 st.markdown("""<h2 style="background-color: RGB(170 187 204); padding: 10px;">1. Funksjonstester av utvikler- og data-APIer</h2>"""\
     , unsafe_allow_html=True)
 #st.header("1. Funksjonstest av utvikler- og data-APIer")
-st.write(f"""Funksjonstestene tester om API-ene er operative. De tester alle seks utvikler-API-ene og data-API-et. \
-    For hvert av API-ene gjennomføres det en test som ser om det får et svar med status kode 200 og at svaret mottas innen ett sekund.""")            
+st.write(f"""Funksjonstestene tester om API-ene er operative. De tester alle seks utvikler-APIene og data-API-et. \
+    For hvert av APIene gjennomføres det en test som ser om det får et svar med status kode 200 og at svaret mottas innen ett sekund.""")            
 
 #st.markdown("***")
 
@@ -109,8 +109,8 @@ st.markdown("""<h2 style="background-color: RGB(170 187 204);padding: 10px;">2. 
     , unsafe_allow_html=True)
 #st.header("2. Hastighetstester av APIet") 
 st.write("Denne web appen har fire hastighetstester, som på forskjellig måte måler responstiden til det åpne API-et. De fleste testene \
-    tillater at brukeren bestemmer antall kall som gjøres mot API-et. Desto flere kall mot API-et, desto lengre tid tar testen. Velger \
-        man få kall mot API-et kan tilfeldige variasjoner i responstid prege utfallet.")
+    tillater at brukeren bestemmer antall kall som gjøres mot API-et. Desto flere kall mot APIet, desto lengre tid tar testen. Velger \
+        man få kall mot APIet kan tilfeldige variasjoner i responstid prege utfallet.")
 
 #st.markdown("***")
 
