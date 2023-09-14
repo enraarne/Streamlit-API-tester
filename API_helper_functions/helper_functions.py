@@ -141,7 +141,7 @@ def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/1
     
     return response
 
-@st.cache_data(max_entries=100)
+@st.cache_resource()
 def run_all_functions(API_functions: list, uu: str):
     #st.write("DEBUG: ", uu)
     response_list = [function() for function in API_functions]
