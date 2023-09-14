@@ -92,7 +92,7 @@ kolonne_dict = {
        'RaderSide', 'RaderTotalt']
 }
 
-@st.experimental_memo()
+@st.cache_data(max_entries=100)
 def kolonne_test(uu:str):
 
     test_liste = []
@@ -132,7 +132,7 @@ def kolonne_test_print(test_liste):
 
 
 
-@st.experimental_memo()
+@st.cache_data(max_entries=100)
 def irene_prikking(uu:str):
     time.sleep(5)
     test_list = [True, True, True, True]    

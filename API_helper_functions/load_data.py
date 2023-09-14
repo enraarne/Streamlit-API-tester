@@ -4,7 +4,7 @@ import csv
 import pandas as pd
 
 # Laster inn orgnummer
-@st.experimental_memo()
+@st.cache_data(max_entries=100)
 def get_orgnummer():
     file = open('data/organisasjonsnumre.csv')
     csvreader = csv.reader(file)
@@ -16,7 +16,7 @@ def get_orgnummer():
     return orgnummer
 
 # Laster inn fylkesnummere
-@st.experimental_memo()
+@st.cache_data(max_entries=100)
 def get_fylker():
     df_fylke = pd.read_html("https://no.wikipedia.org/wiki/Fylkesnummer")
     fylker = df_fylke[0]['Fylkesnummer'].to_list()

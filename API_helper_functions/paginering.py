@@ -6,7 +6,7 @@ import random
 from API_helper_functions.helper_functions import eksport_data
 from API_helper_functions.load_data import get_fylker, get_orgnummer
 
-@st.experimental_memo()
+@st.cache_data(max_entries=100)
 def paginering(slider_3_1: int, uu:str):
     
     # Progress bar
