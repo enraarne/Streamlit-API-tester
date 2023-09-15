@@ -4,7 +4,7 @@ import streamlit as st
 import re
 
 
-def eksporttabeller(url="https://api.statistikkbanken.udir.no//api/rest/v2/Eksport/"):
+def eksporttabeller(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/"):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport """
     
     response = requests.get(url)
@@ -17,7 +17,7 @@ def eksporttabeller(url="https://api.statistikkbanken.udir.no//api/rest/v2/Ekspo
 
 
 def eksport_format(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/format"):
-    """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/format"""
+    """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/format """
     
     response = requests.get(url)
     
@@ -29,7 +29,7 @@ def eksport_format(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport
 
 
 def eksport_filtere(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/152/filterSpec",
-                    tabell=145):
+                    tabell=152):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/filterSpec"""
     
     # erstatter tabellnummer for tabeller med {}-parenteser
@@ -47,7 +47,7 @@ def eksport_filtere(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ekspor
 
 
 def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/152/filterVerdier", 
-                          tabell=145):
+                          tabell=152):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/filterVerdier """
     
     # erstatter tabellnummer for tabeller med {}-parenteser
@@ -64,9 +64,9 @@ def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/
     return response
 
 
-def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/152/filterStatus", 
-                         tabell=151,
-                         filterId="TidID", 
+def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{placeholder}/filterStatus",
+                         tabell=152,
+                         filterId="TidID",
                          filtre="EierformID(-10)_EnhetID(-538_-536_-12)_TidID(202112)_TrinnID(6_9)"):
     """ 
     Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/filterStatus
@@ -89,7 +89,7 @@ def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/E
 
 
 def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/148/sideData", 
-                        tabell=145,
+                        tabell=148,
                         query="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID(202101)_TrinnID(6_9)"
                         ):
     """ Spørring går mot domenenavn +  /api/rapportering/rest/v2/Eksport/{tabell}/sideData"""
@@ -109,8 +109,8 @@ def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ek
     return response
 
 
-def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/148/data", 
-                 tabell=145,
+def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/148/data",
+                 tabell=148,
                  query="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID(202112)_TrinnID(6_9)", 
                  format=0,
                  sideNummer=1):
