@@ -7,7 +7,6 @@ import re
 def eksporttabeller(url="https://api.statistikkbanken.udir.no//api/rest/v2/Eksport/"):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport """
     
-    url      = url
     response = requests.get(url)
     
     # Legger inn navn og tekst i responsobjektet
@@ -20,7 +19,6 @@ def eksporttabeller(url="https://api.statistikkbanken.udir.no//api/rest/v2/Ekspo
 def eksport_format(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/format"):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/format"""
     
-    url      = url
     response = requests.get(url)
     
     # Legger inn navn og tekst i responsobjektet
@@ -39,7 +37,6 @@ def eksport_filtere(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ekspor
         new_url = re.sub('{.*?}', '{}', url)
         url = new_url.format(tabell)
     
-    url      = url
     response = requests.get(url)
     
     # Legger inn navn og tekst i responsobjektet
@@ -58,7 +55,6 @@ def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/
         new_url = re.sub('{.*?}', '{}', url)
         url = new_url.format(tabell)
     
-    url      = url
     response = requests.get(url)
     
     # Legger inn navn og tekst i responsobjektet
@@ -83,7 +79,6 @@ def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/E
         url = new_url.format(tabell)
     
     params   = {"filterId": filterId, "filtre": filtre}
-    url      = url
     response = requests.get(url, params)
     
     # Legger inn navn og tekst i responsobjektet
@@ -105,7 +100,6 @@ def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ek
         url = new_url.format(tabell)
     
     params   = {"filter": query}
-    url      = url
     response = requests.get(url, params)
     
     # Legger inn navn og tekst i responsobjektet
@@ -132,7 +126,6 @@ def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/1
         
     
     params   = {"filter": query, "format": format, "sideNummer": sideNummer}
-    url      = url
     response = requests.get(url, params)
     
     # Legger inn navn og tekst i responsobjektet
