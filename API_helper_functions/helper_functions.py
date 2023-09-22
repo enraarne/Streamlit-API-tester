@@ -97,7 +97,7 @@ def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/E
 
 def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/sideData", 
                         tabell=148,
-                        query="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID({TidID})_TrinnID(6_9)"
+                        filtre="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID({TidID})_TrinnID(6_9)"
                         ):
     """ Spørring går mot domenenavn +  /api/rapportering/rest/v2/Eksport/{tabell}/sideData"""
     
@@ -111,7 +111,7 @@ def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ek
         new_filtre = re.sub('{.*?}', '{}', filtre)
         filtre = new_filtre.format(trines_get_tidID())
 
-    params   = {"filter": query}
+    params   = {"filter": filtre}
     response = requests.get(url, params)
     
     # Legger inn navn og tekst i responsobjektet
