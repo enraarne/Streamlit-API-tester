@@ -123,12 +123,12 @@ def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ek
 
 def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/data",
                  tabell=148,
-                 query="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID({TidID})_TrinnID(6_9)", 
+                 filtre="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID({TidID})_TrinnID(6_9)", 
                  format=0,
                  sideNummer=1):
     """ 
     Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/data
-    Query-parameterene settes til query og sideNummer som default 
+    Query-parameterene settes til filtre og sideNummer som default 
     """
     
     # erstatter tabellnummer for tabeller med {}-parenteser
@@ -141,7 +141,7 @@ def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{
         new_filtre = re.sub('{.*?}', '{}', filtre)
         filtre = new_filtre.format(trines_get_tidID())
     
-    params   = {"filter": query, "format": format, "sideNummer": sideNummer}
+    params   = {"filter": filtre, "format": format, "sideNummer": sideNummer}
     response = requests.get(url, params)
     
     # Legger inn navn og tekst i responsobjektet
