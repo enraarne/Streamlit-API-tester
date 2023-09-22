@@ -3,6 +3,8 @@ import requests
 import streamlit as st
 import re
 
+from API_helper_functions.get_tidID import trines_get_tidID
+
 
 def eksporttabeller(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/"):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport """
@@ -67,7 +69,7 @@ def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/
 def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/filterStatus",
                          tabell=152,
                          filterId="TidID",
-                         filtre="EierformID(-10)_EnhetID(-538_-536_-12)_TidID(202112)_TrinnID(6_9)"):
+                         filtre="EierformID(-10)_EnhetID(-538_-536_-12)_TidID({tidID})_TrinnID(6_9)"):
     """ 
     Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/filterStatus
     Query-parameterene settes til filterId=EierformID og filtre=EierformID(-10) som default
@@ -77,6 +79,11 @@ def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/E
     if '{' in url or '}' in url:
         new_url = re.sub('{.*?}', '{}', url)
         url = new_url.format(tabell)
+
+    # erstatter tidID i filtre
+    if '{' in filtre or '}' in filtre:
+        new_filtre = re.sub('{.*?}', '{}', filtre)
+        filtre = new_filtre.format(trines_get_tidID())
     
     params   = {"filterId": filterId, "filtre": filtre}
     response = requests.get(url, params)
