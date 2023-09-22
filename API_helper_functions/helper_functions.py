@@ -28,7 +28,7 @@ def eksport_format(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport
     return response
 
 
-def eksport_filtere(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/152/filterSpec",
+def eksport_filtere(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/filterSpec",
                     tabell=152):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/filterSpec"""
     
@@ -46,7 +46,7 @@ def eksport_filtere(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ekspor
     return response
 
 
-def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/152/filterVerdier", 
+def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/filterVerdier", 
                           tabell=152):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport/{tabell}/filterVerdier """
     
@@ -64,7 +64,7 @@ def eksport_filterverdier(url="https://api.statistikkbanken.udir.no/api/rest/v2/
     return response
 
 
-def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{placeholder}/filterStatus",
+def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/filterStatus",
                          tabell=152,
                          filterId="TidID",
                          filtre="EierformID(-10)_EnhetID(-538_-536_-12)_TidID(202112)_TrinnID(6_9)"):
@@ -88,7 +88,7 @@ def eksport_filterstatus(url="https://api.statistikkbanken.udir.no/api/rest/v2/E
     return response
 
 
-def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/148/sideData", 
+def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/sideData", 
                         tabell=148,
                         query="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID(202101)_TrinnID(6_9)"
                         ):
@@ -109,7 +109,7 @@ def eksport_rader_sider(url="https://api.statistikkbanken.udir.no/api/rest/v2/Ek
     return response
 
 
-def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/148/data",
+def eksport_data(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{tabell}/data",
                  tabell=148,
                  query="EierformID(-10)_Fylkekode(42)_KjoennID(-10)_Kommunekode(4203)_Nasjonaltkode(I)_Organisasjonsnummer(974622882)_TidID(202112)_TrinnID(6_9)", 
                  format=0,
