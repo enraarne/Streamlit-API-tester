@@ -14,6 +14,7 @@ import copy
 from API_helper_functions.helper_functions import eksporttabeller, eksport_format, eksport_filtere, eksport_filterverdier, \
     eksport_filterstatus, eksport_rader_sider, eksport_data
 from API_helper_functions.load_data import get_fylker, get_orgnummer
+from API_helper_functions.get_tidID import trines_get_tidID
 
 API_functions = [eksporttabeller, eksport_format, eksport_filtere, eksport_filterverdier, eksport_filterstatus, eksport_rader_sider, \
     eksport_data]
@@ -30,9 +31,10 @@ def speed_test_1(slider_2_1: int, uu: str):
     
     orgnummer = get_orgnummer()
     fylker    = get_fylker()
+    TidID     = trines_get_tidID()
     orgnum = random.choice(orgnummer)
     fylke  = random.choice(fylker)
-    query = f"Fylkekode({fylke})_Organisasjonsnummer({orgnum})_TidID(202112)"
+    query = f"Fylkekode({fylke})_Organisasjonsnummer({orgnum})_TidID({TidID})"
     
     # Progress bar
     speed_1_bar = st.progress(0.0)
