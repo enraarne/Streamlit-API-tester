@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import time
 from API_helper_functions.helper_functions import eksport_data
+from API_helper_functions.get_tidID import trines_get_tidID
 
 tabeller = [151, 148, 150, 149, 155, 152, 154, 153] 
 
@@ -100,9 +101,8 @@ def kolonne_test(uu:str):
     for tabell, dict_key in zip(tabeller, kolonne_dict.keys()):
 
         url   = "https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/{148}/data"   
-        query = "EierformID(-10)_EnhetNivaa(1)_Nasjonaltkode(I)_TidID(202112)"      # "EierformID(-10)_EnhetNivaa(1)_Nasjonaltkode(I)_TidID(202112)"
-        tabell = tabell
-        resultat = eksport_data(url, query=query, tabell = tabell)
+        query = f"EierformID(-10)_EnhetNivaa(1)_Nasjonaltkode(I)_TidID({trines_get_tidID()})"      # "EierformID(-10)_EnhetNivaa(1)_Nasjonaltkode(I)_TidID(202112)"
+        resultat = eksport_data(url, filtre=query, tabell = tabell)
 
         df = pd.read_json(resultat.text)
         
