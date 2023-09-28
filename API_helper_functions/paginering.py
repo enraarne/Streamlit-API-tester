@@ -5,6 +5,7 @@ import random
 
 from API_helper_functions.helper_functions import eksport_data
 from API_helper_functions.load_data import get_fylker, get_orgnummer
+from API_helper_functions.get_tidID import trines_get_tidID
 
 @st.cache_data(max_entries=100)
 def paginering(slider_3_1: int, uu:str):
@@ -18,11 +19,12 @@ def paginering(slider_3_1: int, uu:str):
 
     orgnummer = get_orgnummer()
     fylker    = get_fylker()
+    TidID     = trines_get_tidID()
     orgnum = random.choice(orgnummer)
     fylke  = random.choice(fylker)
-    query = f"Fylkekode({fylke})_Organisasjonsnummer({orgnum})"
+    query = f"Fylkekode({fylke})_Organisasjonsnummer({orgnum})_TidID({TidID})"
 
-    df = pd.read_json(eksport_data(query=query, sideNummer=1).text)
+    df = pd.read_json(eksport_data(filtre=query, sideNummer=1).text)
     antall_sider = int(round(df['RaderTotalt'].iloc[0] / df['RaderSide'].iloc[0], 1)) -1
 
     response_dict['query'] = query
@@ -38,8 +40,8 @@ def paginering(slider_3_1: int, uu:str):
 
     for side in sider:
         
-        df1 = pd.read_json(eksport_data(query=query, sideNummer=side).text)
-        df2 = pd.read_json(eksport_data(query=query, sideNummer=side).text)
+        df1 = pd.read_json(eksport_data(filtre=query, sideNummer=side).text)
+        df2 = pd.read_json(eksport_data(filtre=query, sideNummer=side).text)
 
         # Progress bar
         complete += (1/slider_3_1)
