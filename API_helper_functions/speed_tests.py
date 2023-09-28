@@ -50,7 +50,7 @@ def speed_test_1(slider_2_1: int, uu: str):
         speed_1_bar.progress(complete)
         
         start = time.perf_counter()
-        response = eksport_data(query=query)
+        response = eksport_data(filtre=query)
         end = time.perf_counter()
         time_list.append( (request, response.elapsed.microseconds / 1000000, end-start, len(response.json())) )
         sys.stdout.flush()
