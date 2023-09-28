@@ -101,6 +101,8 @@ def speed_test_1_print(query, df):
 def speed_test_2(slider_2_2:int, uu: str):
     time_list = []
     orgnummer = get_orgnummer()
+    fylker    = get_fylker()
+    TidID     = trines_get_tidID()
 
     # Progress bar
     speed_2_bar = st.progress(0.0)
@@ -115,8 +117,11 @@ def speed_test_2(slider_2_2:int, uu: str):
         speed_2_bar.progress(complete)
         
         orgnum = random.choice(orgnummer)
+        fylke  = random.choice(fylker)
+        query = f"Fylkekode({fylke})_Organisasjonsnummer({orgnum})_TidID({TidID})"
+
         start = time.perf_counter()
-        response = eksport_data(query=f"Organisasjonsnummer({orgnum})")
+        response = eksport_data(filtre=query)
         end = time.perf_counter()
         time_list.append( (request, response.elapsed.microseconds / 1000000, end-start, len(response.json()), orgnum ))
 
