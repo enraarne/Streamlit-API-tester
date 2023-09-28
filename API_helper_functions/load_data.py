@@ -2,6 +2,7 @@
 import streamlit as st
 import csv
 import pandas as pd
+import requests
 
 # Laster inn orgnummer
 @st.cache_data(max_entries=100)
@@ -18,7 +19,9 @@ def get_orgnummer():
 # Laster inn fylkesnummere
 @st.cache_data(max_entries=100)
 def get_fylker():
-    df_fylke = pd.read_html("https://no.wikipedia.org/wiki/Fylkesnummer")
-    fylker = df_fylke[0]['Fylkesnummer'].to_list()
-    fylker[1] = '03'
+    url = "https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/155/data?filter=EierformID(-10)_EnhetNivaa(2)_TidID(202212)_TrinnID(10)&format=0&sideNummer=1"
+    response = requests.get(url)
+    fylker = []
+    for fylke in response.json():
+        fylker.append(fylke['Fylkekode'])
     return fylker
