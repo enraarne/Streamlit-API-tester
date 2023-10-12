@@ -5,15 +5,12 @@ import pandas as pd
 import requests
 
 # Laster inn orgnummer
-@st.cache_data(max_entries=100)
-def get_orgnummer():
-    file = open('data/organisasjonsnumre.csv')
-    csvreader = csv.reader(file)
-    rows = []
-    for row in csvreader:
-        rows.append(row)
-    orgnummer = [val for sublist in rows for val in sublist]
-    orgnummer = orgnummer[1:]
+@st.cache_data(max_entries=10)
+def get_orgnummer(url = "https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/148/filterVerdier"):
+    response = requests.get(url)
+    orgnummer = []
+    for enhet in response.json()['EnhetID']:
+        orgnummer.append(enhet['kode'])
     return orgnummer
 
 # Laster inn fylkesnummere
