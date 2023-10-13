@@ -6,7 +6,7 @@ import re
 from API_helper_functions.get_tidID import trines_get_tidID
 
 
-def eksporttabeller(url="https://api.statistikkbanken.udir.no/api/rest/v2/Eksport/"):
+def eksporttabeller(url="https://qa-api.statistikkbanken.udir.no/api/rest/v2/Eksport/"):
     """ Spørring går mot domenenavn + /api/rapportering/rest/v2/Eksport """
     
     response = requests.get(url)
